@@ -1,17 +1,17 @@
-package practice.langb;
+package practice.langc;
 
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import practice.langb.antlr4.HelloLexer;
-import practice.langb.antlr4.HelloParser;
+import practice.langc.antlr4.HelloLexer;
+import practice.langc.antlr4.HelloParser;
 
 import java.io.IOException;
 
 @SpringBootApplication
-public class LangbApplication {
+public class LangcApplication {
 
 	public static void main(String[] args) throws IOException {
 		System.out.println("<START>");
@@ -20,9 +20,9 @@ public class LangbApplication {
 		var parser = new HelloParser(tokens);
 		var tree = parser.r();
 		var walker = new ParseTreeWalker();
-		walker.walk(new LangbListener(), tree);
+		walker.walk(new LangcListener(), tree);
 		System.out.println("<END>");
-		SpringApplication.run(LangbApplication.class, args);
+		SpringApplication.run(LangcApplication.class, args);
 	}
 
 }
