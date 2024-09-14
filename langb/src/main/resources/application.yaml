@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: langb
+  main:
+    web-application-type: none
