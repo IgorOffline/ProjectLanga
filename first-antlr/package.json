@@ -1,0 +1,14 @@
+{
+  "name": "first-antlr",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Igor Durbek",
+  "license": "MIT",
+  "dependencies": {
+    "antlr4": "^4.13.2",
+    "esm": "^3.2.25"
+  },
+  "scripts": {
+    "go": "node -r esm index.js"
+  }
+}
