@@ -1,2 +1,8 @@
-﻿X MAIN DIV.
-X PROGRAM ID. sum.
+﻿X MAIN DIV
+X PROGRAM ID sum
+X ADD , 1, 2, 3
+X ADD , 1, 2, 3
+X SUBTRACT , 1, 2, 3
+X SUBTRACT , 1, 2, 3
+X ADD , 1, 2, 3
+X FIN

@@ -17,6 +17,7 @@ var walker = new ParseTreeWalker();
 walker.Walk(listener, tree);
 
 Console.WriteLine("--- --- ---");
-Console.WriteLine($"Program id: {listener.ProgramId}");
+Console.WriteLine($"Program id= {listener.ProgramId}");
+Console.WriteLine($"Sum= {listener.Sum}");
 
 Console.WriteLine("<END>");
