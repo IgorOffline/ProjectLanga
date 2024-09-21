@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: langg
+  main:
+    web-application-type: none
