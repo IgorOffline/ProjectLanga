@@ -7,9 +7,10 @@ namespace ThirdBabyCobol.Business;
 
 public class MyBabyCobolListener : IBabyCobolListener
 {
-    public int CommandOrder { get; set; }
-    public string ProgramId { get; set; }
-    public BigInteger Sum { get; set; } = BigInteger.Zero;
+    public BigInteger CommandOrder { get; set; } = BigInteger.Zero;
+    public string ProgramId { get; private set; } = string.Empty;
+    public string LastVariable { get; set; } = string.Empty;
+    public Dictionary<string, BigInteger> Values { get; } = new();
     public BacoOperation Operation { get; set; } = BacoOperation.None;
     
     public void VisitTerminal(ITerminalNode node)
@@ -68,6 +69,22 @@ public class MyBabyCobolListener : IBabyCobolListener
         //
     }
 
+    public void EnterBacovar(BabyCobolParser.BacovarContext context)
+    {
+        LastVariable = context.GetText();
+        if (!Values.ContainsKey(LastVariable))
+        {
+            Values.Add(LastVariable, BigInteger.Zero);
+        }
+        
+        Console.WriteLine($"EnterBacovar={context.GetText()}");
+    }
+
+    public void ExitBacovar(BabyCobolParser.BacovarContext context)
+    {
+        //
+    }
+
     public void EnterBacoint(BabyCobolParser.BacointContext context)
     {
         Console.WriteLine($"EnterBacoint={context.GetText()}");
@@ -77,10 +94,20 @@ public class MyBabyCobolListener : IBabyCobolListener
             case BacoOperation.None:
                 break;
             case BacoOperation.Add:
-                Sum += int.Parse(context.GetText());
+                if (!LastVariable.Equals(string.Empty))
+                {
+                    Values.TryGetValue(LastVariable, out var bigval);
+                    bigval += int.Parse(context.GetText());
+                    Values[LastVariable] = bigval;
+                }
                 break;
             case BacoOperation.Subtract:
-                Sum -= int.Parse(context.GetText());
+                if (!LastVariable.Equals(string.Empty))
+                {
+                    Values.TryGetValue(LastVariable, out var bigval);
+                    bigval -= int.Parse(context.GetText());
+                    Values[LastVariable] = bigval;
+                }
                 break;
             default:
                 throw new NotSupportedException($"Operation ${Operation} is not supported");

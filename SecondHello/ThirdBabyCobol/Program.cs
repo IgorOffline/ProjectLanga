@@ -18,6 +18,10 @@ walker.Walk(listener, tree);
 
 Console.WriteLine("--- --- ---");
 Console.WriteLine($"Program id= {listener.ProgramId}");
-Console.WriteLine($"Sum= {listener.Sum}");
+Console.WriteLine("Variables:");
+foreach (var kv in listener.Values.AsEnumerable())
+{
+    Console.WriteLine($"{kv.Key} {kv.Value}");
+}
 
 Console.WriteLine("<END>");
