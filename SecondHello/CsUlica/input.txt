@@ -1,0 +1,2 @@
+PROGRAM ID hello
+ISPISI __program_id__
