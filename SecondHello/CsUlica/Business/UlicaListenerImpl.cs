@@ -61,16 +61,29 @@ public class UlicaListenerImpl : IUlicaListener
         //
     }
 
-    public void EnterUlicadeclare(UlicaParser.UlicadeclareContext context)
-    {
-        //
-    }
-
-    public void ExitUlicadeclare(UlicaParser.UlicadeclareContext context)
+    public void EnterUlicadeclaredefault(UlicaParser.UlicadeclaredefaultContext context)
     {
         var bigintKey = context.children[1].GetText()!;
         
         Values[bigintKey] = new UlicaVariable(UlicaType.Bigint, bigintKey, BigInteger.Zero);
+    }
+
+    public void ExitUlicadeclaredefault(UlicaParser.UlicadeclaredefaultContext context)
+    {
+        //
+    }
+
+    public void EnterUlicadeclare(UlicaParser.UlicadeclareContext context)
+    {
+        var bigintKey = context.children[1].GetText()!;
+        var bigintValue = BigInteger.Parse(context.children[3].GetText()!);
+        
+        Values[bigintKey] = new UlicaVariable(UlicaType.Bigint, bigintKey, bigintValue);
+    }
+
+    public void ExitUlicadeclare(UlicaParser.UlicadeclareContext context)
+    {
+        //
     }
 
     public void EnterUlicaprint(UlicaParser.UlicaprintContext context)

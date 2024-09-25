@@ -1,4 +1,6 @@
 PROGRAM ID hello
 ISPISI __program_id__
-DEKLARIRAJ BIGINT plus
-ISPISI plus
+DEKLARIRAJ BIGINT first_default
+ISPISI first_default
+DEKLARIRAJ BIGINT five = 5
+ISPISI five
