@@ -68,15 +68,28 @@ public class UlicaListenerImpl : IUlicaListener
 
     public void ExitUlicadeclare(UlicaParser.UlicadeclareContext context)
     {
-        //
+        var bigintKey = context.children[1].GetText()!;
+        
+        Values[bigintKey] = new UlicaVariable(UlicaType.Bigint, bigintKey, BigInteger.Zero);
     }
 
     public void EnterUlicaprint(UlicaParser.UlicaprintContext context)
     {
-        var programIdKey = context.children[1].GetText()!;
-        var programIdValue = (string) Values[programIdKey].Value!;
+        var printKey = context.children[1].GetText()!;
+        var printValue = Values[printKey];
         
-        Console.WriteLine(programIdValue);
+        switch (printValue.Type)
+        {
+            case UlicaType.String:
+                Console.WriteLine((string) printValue.Value!);
+                break;
+            case UlicaType.Bigint:
+                Console.WriteLine((BigInteger) printValue.Value!);
+                break;
+            case UlicaType.Object:
+            default:
+                throw new ArgumentException($"Unsupported type= {printValue.Type.ToString()}");
+        }
     }
 
     public void ExitUlicaprint(UlicaParser.UlicaprintContext context)

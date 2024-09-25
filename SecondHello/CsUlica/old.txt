@@ -12,3 +12,8 @@ ISPISI minus
 PROGRAM ID hello
 DEKLARIRAJ BIGINT plus
 ISPISI plus
+
+PROGRAM ID hello
+ISPISI __program_id__
+DEKLARIRAJ BIGINT plus
+ISPISI plus
