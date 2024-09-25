@@ -125,7 +125,7 @@ public class UlicaListenerImpl : IUlicaListener
 
         var name = LastVariable.Name;
         
-        for (int i = 1; i < context.children.Count; i += 2)
+        for (int i = 0; i < context.children.Count; i++)
         {
             var addBy = (BigInteger) Values[name].Value!;
             var parse = BigInteger.Parse(context.children[i].GetText());

@@ -2,7 +2,8 @@ PROGRAM ID hello
 ISPISI __program_id__
 DEKLARIRAJ BIGINT first_default
 ISPISI first_default
-DEKLARIRAJ BIGINT five = 5
-ISPISI five
-five , += , 2, 3, 5
-ISPISI five
+DEKLARIRAJ BIGINT fifty = 5
+ISPISI fifty
+fifty += 5
+fifty += 2 3 10 25
+ISPISI fifty

@@ -5,9 +5,9 @@ ulicaint            : INT ;
 ulicadeclaredefault : 'DEKLARIRAJ BIGINT' VARNAME ;
 ulicadeclare        : 'DEKLARIRAJ BIGINT' VARNAME '=' INT ;
 ulicaprint          : 'ISPISI' VARNAME ;
-ulicasepint         : (', ' ulicaint)+ ;
-ulicaaddition       : ulicavar ', += ' ulicasepint ;
-ulicasubtraction    : ulicavar ', -= ' ulicasepint ;
+ulicasepint         : ulicaint (' ' ulicaint)* ;
+ulicaaddition       : ulicavar '+=' ulicasepint ;
+ulicasubtraction    : ulicavar '-=' ulicasepint ;
 ulicamain           : ulicaprogramid (ulicadeclaredefault |
                       ulicadeclare |
                       ulicaprint |
