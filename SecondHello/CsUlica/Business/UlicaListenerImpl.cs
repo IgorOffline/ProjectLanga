@@ -8,6 +8,7 @@ namespace CsUlica.Business;
 public class UlicaListenerImpl : IUlicaListener
 {
     public UlicaVariable LastVariable { get; set; } = UlicaUtil.UlicaVariableDefault();
+    public UlicaOperation LastOperation { get; set; } = UlicaOperation.None;
     public Dictionary<string, UlicaVariable> Values { get; set; } = new();
     public const string ProgramIdVal = "__program_id__";
     
@@ -112,7 +113,25 @@ public class UlicaListenerImpl : IUlicaListener
 
     public void EnterUlicasepint(UlicaParser.UlicasepintContext context)
     {
-        //
+        if (LastVariable.Type != UlicaType.Bigint)
+        {
+            throw new ArgumentException("Last variable ulica type must be bigint");
+        }
+
+        if (LastOperation != UlicaOperation.Add)
+        {
+            throw new ArgumentException("Last operation must be add");
+        }
+
+        var name = LastVariable.Name;
+        
+        for (int i = 1; i < context.children.Count; i += 2)
+        {
+            var addBy = (BigInteger) Values[name].Value!;
+            var parse = BigInteger.Parse(context.children[i].GetText());
+            addBy += parse;
+            Values[name] = new UlicaVariable(UlicaType.Bigint, name, addBy);
+        }
     }
 
     public void ExitUlicasepint(UlicaParser.UlicasepintContext context)
@@ -122,7 +141,10 @@ public class UlicaListenerImpl : IUlicaListener
 
     public void EnterUlicaaddition(UlicaParser.UlicaadditionContext context)
     {
-        //
+        var additionKey = context.children[0].GetText()!;
+        
+        LastVariable = new UlicaVariable(UlicaType.Bigint, additionKey, null);
+        LastOperation = UlicaOperation.Add;
     }
 
     public void ExitUlicaaddition(UlicaParser.UlicaadditionContext context)

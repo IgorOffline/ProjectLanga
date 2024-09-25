@@ -4,3 +4,5 @@ DEKLARIRAJ BIGINT first_default
 ISPISI first_default
 DEKLARIRAJ BIGINT five = 5
 ISPISI five
+five , += , 2, 3, 5
+ISPISI five
