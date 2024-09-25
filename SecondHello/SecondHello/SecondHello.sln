@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondHello", "SecondHello.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdBabyCobol", "..\ThirdBabyCobol\ThirdBabyCobol.csproj", "{58DBC060-1B02-4C00-BF3D-55F6FB474A26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsUlica", "..\CsUlica\CsUlica.csproj", "{B3EDD8F7-2003-481F-BA46-E9E781A4C58F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{58DBC060-1B02-4C00-BF3D-55F6FB474A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58DBC060-1B02-4C00-BF3D-55F6FB474A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58DBC060-1B02-4C00-BF3D-55F6FB474A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3EDD8F7-2003-481F-BA46-E9E781A4C58F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3EDD8F7-2003-481F-BA46-E9E781A4C58F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3EDD8F7-2003-481F-BA46-E9E781A4C58F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3EDD8F7-2003-481F-BA46-E9E781A4C58F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

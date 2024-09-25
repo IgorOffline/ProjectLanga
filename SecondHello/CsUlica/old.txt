@@ -1,0 +1,14 @@
+
+PROGRAM ID hello
+DEKLARIRAJ BIGINT plus
+DEKLARIRAJ BIGINT minus
+plus , += , 1, 2, 3
+minus , -= , 1, 2, 3
+plus , += , 1, 2, 3
+minus , -= , 1, 2, 3
+ISPISI plus
+ISPISI minus
+
+PROGRAM ID hello
+DEKLARIRAJ BIGINT plus
+ISPISI plus
